@@ -1,0 +1,24 @@
+<fieldset>
+  <legend>Verlauf</legend>
+  <p></p>
+  <% @messages.each do | message | %>
+      <dl class="dl-horizontal">
+        <dt>Gesendet</dt>
+        <dd><%= message.created_at.strftime('%d.%m.%Y %H:%M Uhr') %></dd>
+        <dt>Empfänger</dt>
+        <dd><%= message.receiver %></dd>
+        <dt>Absender</dt>
+        <dd><%= message.sender %></dd>
+        <dt>Nachricht</dt>
+        <dd><%= simple_format(message.message) %></dd>
+        <dt>Quelle</dt>
+        <dd><%= message.source %></dd>
+        <dt>SMS-Info</dt>
+        <% if message.result == 100 %>
+            <dd><%= message.count %> SMS (<%= number_to_currency(message.cost, :unit => '&euro;', :separator => ',', :format => '%n %u') %>)<br>Mobilant-ID: <%= message.mobilant_id %></dd>
+        <% else %>
+            <dd><%= get_status_string(message.result) %></dd>
+        <% end %>
+      </dl>
+  <% end %>
+</fieldset>

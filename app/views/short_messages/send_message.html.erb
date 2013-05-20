@@ -1,0 +1,11 @@
+<% if @message.result == 100 %>
+    SMS wurde erfolgreich versendet!
+    <p></p>
+    <%= link_to 'weitere SMS versenden...', root_path %>
+<% else %>
+    SMS konnte leider nicht versendet werden!<br>
+    <strong>Fehler:</strong> <%= get_status_string(@message.result) %>
+    <p></p>
+    <a href="#" onclick="history.back();">Zurück</a><br>
+    <%= link_to 'weitere SMS versenden...', root_path %>
+<% end %>

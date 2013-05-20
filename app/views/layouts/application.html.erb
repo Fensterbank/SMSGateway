@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>SMSGateway</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+
+<div class="navbar navbar-inverse">
+  <div class="navbar-inner">
+    <div class="container">
+        <%= link_to 'SMS Gateway', root_path, :class => 'brand' %>
+        <div class="nav-collapse collapse navbar-inverse-collapse">
+          <ul class="nav">
+            <li <%= render_class(root_path) %>><%= link_to 'SMS versenden', root_path %></li>
+            <li <%= render_class(history_path) %>><%= link_to 'Verlauf', history_path %></li>
+            <li <%= render_class(logout_path) %>><%= link_to 'Ausloggen', logout_path %></li>
+          </ul>
+          <p class="pull-right muted" style="margin-top:10px;">Copyright &copy; 2013 by <a href="http://bolvin.de/" target="_blank">Frédéric Bolvin</a></p>
+        </div>
+
+    </div>
+  </div>
+</div>
+
+
+<div class="container main">
+    <%= yield %>
+</div>
+
+
+
+</body>
+</html>

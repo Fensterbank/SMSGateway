@@ -1,0 +1,9 @@
+
+<%= form_tag sessions_path do %>
+    <fieldset>
+      <legend>Einloggen</legend>
+      <p></p>
+      <%= password_field_tag :password, params[:password], :class => 'input-medium search-query', :placeholder => 'Passwort' %>
+      <%= submit_tag 'ok', :class => 'btn' %>
+    </fieldset>
+<% end %>

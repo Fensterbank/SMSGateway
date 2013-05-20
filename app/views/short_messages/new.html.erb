@@ -1,0 +1,21 @@
+<%= form_for @message, :url => send_message_path do | f | %>
+    <fieldset>
+      <legend>Neue SMS versenden</legend>
+      <p></p>
+      <div class="controls">
+        <%= f.text_field :receiver, :class => 'input-large numbers-input', :placeholder => 'Empfänger' %>
+      </div>
+      <div class="controls">
+        <%= f.text_area :message, :class => 'input-large', :rows => '6', :id => 'sms_body' %>
+        <span class="help-inline" id="letter_count">0 Zeichen</span>
+      </div>
+      <div class="controls">
+      <%= f.text_field :sender, :class => 'input-large numbers-input', :placeholder => 'Absender' %>
+      </div>
+      <%= f.submit 'SMS versenden', :class => 'btn' %>
+    </fieldset>
+<% end %>
+
+<script type="text/javascript">
+  var numbers = [ <%=raw @numbers * ',' %> ];
+</script>
