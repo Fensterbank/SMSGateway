@@ -1,0 +1,2 @@
+module ShortMessageHelper
+end

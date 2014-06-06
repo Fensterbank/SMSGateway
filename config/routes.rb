@@ -2,10 +2,10 @@ SMSGateway::Application.routes.draw do
   get 'login' => 'sessions#new', as: 'login'
   get 'logout' => 'sessions#destroy', as: 'logout'
   post 'sessions' => 'sessions#create', as: 'sessions'
-  post 'new' => 'ShortMessages#send_message', as: 'send_message'
-  get 'new' => 'ShortMessages#new', as: 'send_message'
-  get 'history' => 'ShortMessages#history', as: 'history'
-  root :to => 'ShortMessages#new'
+  post 'new' => 'short_message#send_message', as: 'send_message'
+  get 'new' => 'short_message#new', as: 'new_message'
+  get 'history' => 'short_message#history', as: 'history'
+  root :to => 'short_message#new'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
